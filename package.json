@@ -1,0 +1,26 @@
+{
+  "name": "coinmarketcap-ticker",
+  "author": "Huy Hong <me@huyhong.com>",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Simple Electron-based tray application fetching live coin prices from coinmarketcap.com and displaying it in your OS tray",
+  "dependencies": {
+    "electron-prompt": "^0.4.0",
+    "electron-settings": "^3.1.3",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "electron": "^1.4.13",
+    "electron-installer-dmg": "^0.2.0",
+    "electron-packager": "^8.4.0"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:app_osx": "electron-packager . coinmarket-cap --icon=assets/app_icon.icns --platform=darwin --arch=x64 --overwrite --out=build --asar=true",
+    "build:dmg": "electron-installer-dmg ./build/coinmarket-cap-darwin-x64/coinmarket-cap.app coinmarket-cap --overwrite",
+    "build": "npm run build:app_osx && npm run build:dmg"
+  },
+  "repository": "https://github.com/huyhong/coinmarketcap-ticker",
+  "private": false
+}
